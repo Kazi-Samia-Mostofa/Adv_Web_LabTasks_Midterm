@@ -1,0 +1,24 @@
+ .../product-inventory-api/.gitattributes           |    1 [32m+[m
+ .../product-inventory-api/.gitignore               |   59 [32m+[m
+ .../product-inventory-api/.oxlintrc.json           |   10 [32m+[m
+ .../product-inventory-api/.prettierrc              |    4 [32m+[m
+ .../product-inventory-api/nest-cli.json            |    8 [32m+[m
+ .../product-inventory-api/package-lock.json        | 6309 [32m++++++++++++++++++++[m
+ .../product-inventory-api/package.json             |   55 [32m+[m
+ .../src/app.controller.spec.ts                     |   22 [32m+[m
+ .../product-inventory-api/src/app.controller.ts    |   12 [32m+[m
+ .../product-inventory-api/src/app.service.ts       |    8 [32m+[m
+ .../product-inventory-api/src/main.ts              |   19 [32m+[m
+ .../src/products/dto/CreateProductDto.ts           |   40 [32m+[m
+ .../src/products/dto/PartialUpdateProductDto.ts    |    6 [32m+[m
+ .../src/products/dto/UpdateProductDto.ts           |    3 [32m+[m
+ .../entities/products.entity/products.entity.ts    |   41 [32m+[m
+ .../src/products/products.controller.ts            |   31 [32m+[m
+ .../src/products/products.module.ts                |   13 [32m+[m
+ .../src/products/products.service.ts               |   55 [32m+[m
+ .../product-inventory-api/test/app.e2e-spec.ts     |   29 [32m+[m
+ .../product-inventory-api/tsconfig.build.json      |    8 [32m+[m
+ .../product-inventory-api/tsconfig.json            |   23 [32m+[m
+ .../product-inventory-api/vitest.config.e2e.ts     |   10 [32m+[m
+ .../product-inventory-api/vitest.config.ts         |   12 [32m+[m
+ 23 files changed, 6778 insertions(+)
