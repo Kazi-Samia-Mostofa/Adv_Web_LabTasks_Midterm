@@ -30,9 +30,6 @@ src/
   uploads/                    # Created automatically on upload, ignored by Git
   app.module.ts
   main.ts
-postman/
-  CourseManagementAPI.postman_collection.json
-  fixtures/
 ```
 
 ## Routes
@@ -77,33 +74,6 @@ For POST `/course/5/upload`, choose Body -> form-data, add key `file`, change it
 
 File extensions are checked by Multer fileFilter. A missing file or unsupported extension returns HTTP 400. Multer normally returns HTTP 413 for oversized files; the small upload exception filter converts this to HTTP 400 to match the lab's testing requirement.
 
-## Postman verification
+## Testing
 
-Import `postman/CourseManagementAPI.postman_collection.json` into Postman.
-Set collection variable `fixtureDir` to the absolute path of this project's `postman/fixtures` folder, using forward slashes on Windows. Alternatively, select the corresponding local file manually in each upload request.
-
-Before running the collection, generate the oversized test file from this project directory in PowerShell:
-
-```powershell
-$largeFile = Join-Path (Get-Location) 'postman/fixtures/large.pdf'
-[System.IO.File]::WriteAllBytes($largeFile, (New-Object byte[] (2 * 1024 * 1024 + 1)))
-```
-
-This generated file is ignored by Git. `blocked.exe` is a harmless text fixture, not an executable program.
-
-With the server running and the standalone Postman CLI installed:
-
-```bash
-postman collection run postman/CourseManagementAPI.postman_collection.json
-```
-
-The collection checks all seven routes, numeric conversion, optional description, empty and blank names, out-of-range and invalid credits, missing required fields, unknown fields, invalid updates, all four accepted extensions, rejected TXT/EXE uploads, oversized uploads and a missing upload.
-
-Verified locally: 25 requests and 50 assertions passed using Postman CLI. Unit tests (3) and the existing root endpoint e2e test (1) also passed.
-
-```bash
-npm test
-npm run test:e2e
-```
-
-No Git commit or GitHub push is performed automatically.
+Test the routes in Postman using the request examples above. Check valid requests, missing fields, invalid credits, unknown fields, unsupported file types and files larger than 2MB.
